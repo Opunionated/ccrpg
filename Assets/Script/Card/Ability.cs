@@ -10,6 +10,7 @@ public abstract class Ability {
 
     protected Ability(event e)
     {
+        //Simple test line for Github
         e += Invoke;
     }
 
