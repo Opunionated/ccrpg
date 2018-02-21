@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CharacterHighlightedEventData {
+﻿public class CharacterHighlightedEventData : EventData {
 
     public Character character;
 

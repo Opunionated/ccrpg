@@ -1,4 +1,4 @@
-﻿public class CharacterDamagedEventData {
+﻿public class CharacterDamagedEventData : EventData {
 
     public Character source;
     public Character target;

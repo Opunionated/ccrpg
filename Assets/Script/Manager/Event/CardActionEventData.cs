@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-public class CardActionEventData {
+public class CardActionEventData : EventData {
 
     public Card card;
     public Character[] validTargets;

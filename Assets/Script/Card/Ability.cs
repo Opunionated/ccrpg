@@ -4,33 +4,23 @@ using UnityEngine;
 
 public abstract class Ability {
 
-    public Trigger trigger;
-    public abstract void Invoke();
+    public Event trigger;
+    public abstract void Invoke(EventData eventData);
     public abstract override string ToString();
 
-    public enum Trigger { DamageTaken, DamageDealt, Deathrattle }; //Grow list
-
-    protected Ability(Trigger t)
+    protected Ability(event e)
     {
-        switch (t)
-        {
-            case (Trigger.DamageTaken):
-                break;
-            case (Trigger.DamageDealt):
-                break;
-            case (Trigger.Deathrattle):
-                break;
-        }
+        e += Invoke;
     }
 
     public class GainLife : Ability
     {
-        public GainLife(Trigger t) : base(t)
+        public GainLife(event abilityEvent) : base(abilityEvent)
         {
 
         }
 
-        public override void Invoke()
+        public override void Invoke(EventData eventData)
         {
             throw new System.NotImplementedException();
         }

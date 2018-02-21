@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CardMovedEventData {
+﻿public class CardMovedEventData : EventData {
 
     public Card card;
     public CardLocation from;
