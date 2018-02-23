@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
     public delegate void OnCardPlayedAction(CardActionEventData eventData);
     public delegate void OnCharacterHighlightedAction(CharacterHighlightedEventData eventData);
     public delegate void OnCharacterDamagedAction(CharacterDamagedEventData eventData);
+    public delegate void OnCharacterHealedAction(CharacterHealedEventData eventData);
     public delegate void OnCharacterStateAction(CharacterStateEventData eventData);
     //Events
     public event OnGamePhaseAction OnMatchBegin;
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour {
     public event OnCardPlayedAction OnCardUnprepared;
     public event OnCharacterHighlightedAction OnCharacterHighlighted;
     public event OnCharacterDamagedAction OnCharacterDamaged;
+    public event OnCharacterHealedAction OnCharacterHealed;
 
     public void Awake()
     {
@@ -170,7 +172,18 @@ public class GameManager : MonoBehaviour {
         if (targets == null || targets.Length <= 0) return; //TODO debug
         foreach (Character c in targets)
         {
-            c.TakeDamage(source, power);
+            CharacterDamagedEventData eventData = c.TakeDamage(source, power);
+            if (OnCharacterDamaged != null) OnCharacterDamaged(eventData);
+        }
+    }
+
+    public void HealCharacters(Character source, Character[] targets, int power)
+    {
+        if (targets == null || targets.Length <= 0) return; //TODO debug
+        foreach (Character c in targets)
+        {
+            CharacterHealedEventData eventData = c.GainLife(source, power);
+            if (OnCharacterHealed != null) OnCharacterHealed(eventData);
         }
     }
 
