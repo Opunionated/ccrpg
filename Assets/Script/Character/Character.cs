@@ -28,6 +28,7 @@ public class Character : MonoBehaviour {
 
     private void RemoveAbilities()
     {
+        if (abilities == null) return;
         foreach (Ability a in abilities)
         {
             a.SetEnabled(false);
