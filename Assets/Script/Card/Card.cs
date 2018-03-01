@@ -17,11 +17,12 @@ public class Card {
         this.name = name;
         this.description = description;
         this.targetType = targetType;
-        this.conditions = conditions;
-        this.actions = actions;
-        this.location = location;
+        this.conditions = conditions; 
+        this.actions = actions; // If we do all the cards in a external array then we can code each action individually and have them either static or combine with stats
+        this.location = location; // is this to do with card position in hand?
     }
 
+    // This could be easier to draw upon as its own seperate script, sorry my lecturer is always going on about encapsulation 
     public Character[] Prepare(List<Character> targets)
     {
         List<Character> validTargets = new List<Character>();
