@@ -33,6 +33,7 @@ public class Character : MonoBehaviour {
         armour -= armourDamage;
         health -= damage;
         //Mark dead
+        //(Hugh) This could live here, but again i feel it would be beter as a seperate script to apply to all monsters and ecncounters we code. 
         if (health <= 0) dead = true;
         return new CharacterDamagedEventData(source, this, power, damage, dead);
     }
