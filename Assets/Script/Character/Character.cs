@@ -9,6 +9,10 @@ public class Character : MonoBehaviour {
     public int armour = 1;
     public int speed = 1;
     public bool dead = false; //Characters can be marked for death, without yet being removed from the scene by the 'Reaper'
+    
+// (Hugh) This may just be me, but I beleive that these calculations should be done in a seperate script the character page 
+//  should only have the character stats with other scripts calling upon this page to change things like health and damage calculations.
+//  Also by seperating these calculations we can eaily call upon them for monster attacks, traps, event dmg so on and so forth.
 
     public int CalculateArmourDamage(int power)
     {
