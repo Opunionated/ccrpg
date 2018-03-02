@@ -18,7 +18,8 @@ public class Card {
         this.description = description;
         this.targetType = targetType;
         this.conditions = conditions; 
-        this.actions = actions; // If we do all the cards in a external array then we can code each action individually and have them either static or combine with stats
+        this.actions = actions; // If we do all the cards in a external array then we can code each action individually and 
+                                //have them either static or combine with stats
         this.location = location; // is this to do with card position in hand?
     }
 
